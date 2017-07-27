@@ -88,10 +88,11 @@ The third script wraps the FRED interface in python and creates pyfred's API:
 ```
 
 ## Usage
-Have a look through the files in the `tests` subdirectory for examples
-of usage.
+Have a look through the files in the `examples` and `tests` subdirectory.
+Files in `examples` may be readily repurposed. Scripts in `tests` may also
+be useful but they are formatted specifically for pyfred testing.
 
-First thing to try is to run `test_raw_create_doc.py`. This launches
+First thing to try is to run `examples\raw_create_doc.py`. This launches
 FRED and creates a simple document with a plane element. This script only
 uses the raw COM interface (pyfred is not used at all). If FRED does not launch
 and create a document with a plane then python is not able to communicate

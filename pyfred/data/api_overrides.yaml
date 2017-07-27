@@ -1,0 +1,212 @@
+# Override data structures before generating api_build.yaml
+# =============================================================================
+# Copyright 2017, Arthur Davis
+# Email: art.davis@gmail.com
+# This file is part of pyfred. See LICENSE and README.md for details.
+# ----------
+# For customization or fixing errors caused by incorrect info parsed out
+# of the help file.
+# After modifying this file regenerate the stubs and the API:
+# Rerun: script01_winparse_chm.py, script02_stubgen.py, script03_apiwrapgen.py
+
+# Help file reports returns data type as Type, should be Long
+DeleteGroup:
+  returns: [numGroups, Long]
+
+# Help file reports returns data type as Type, should be Boolean
+IsRayActive:
+  returns: [ray, Boolean]
+
+# Wavelen variable gets parsed as "Wave len" due to incorrect placement
+# of </SPAN> tag in the html help. 
+T_MIESCATTER:
+  sig:
+  - [Wavelen, Double]
+  - [RefIndex, Double]
+  - [ImagIndex, Double]
+  - [ImmerseIndex, Double]
+  - [MaxDia, Double]
+  - [MinDia, Double]
+  - [Slope, Double]
+  - [CleanLevel, Double]
+  - [Density, Double]
+  - [Mean, Double]
+  - [StandardDev, Double]
+  - [Function, String]
+  - [Name, String]
+  - [Description, String]
+  - [ApplyRefl, Boolean]
+  - [ApplyTrans, Boolean]
+  - [HaltIncident, Boolean]
+
+# HTML help is missing the 'n' for node number of the surface in
+# parameter definitions.
+SetPolynomialSurfIthCoef:
+  sig:
+  - [n, Long]
+  - [indx, Long]
+  - [coef, Double]
+
+# "startX" variable gets parsed as "start X" due to incorrect placement
+# of </span> tag in html help.
+T_TARGETEDRAY:
+  sig:
+  - [startX, Double]
+  - [startY, Double]
+  - [startZ, Double]
+  - [endX, Double]
+  - [endY, Double]
+  - [endZ, Double]
+  - [hintX, Double]
+  - [hintY, Double]
+  - [hintZ, Double]
+  - [hintWidthX, Double]
+  - [hintWidthY, Double]
+  - [wavelength, Double]
+  - [aimTolerance, Double]
+  - [derivativeIncrement, Double]
+  - [startCoordSys, Long]
+  - [endCoordSys, Long]
+  - [hintCoordSys, Long]
+  - [targetSurface, Long]
+  - [material, Long]
+  - [hintNumRays, Long]
+  - [hintTowards, Long]
+  - [rayPath, String]
+  - [hintType, String]
+  - [useX, Boolean]
+  - [useY, Boolean]
+  - [useZ, Boolean]
+  - [sameTargetAndEndCoordSys, Boolean]
+
+# Fix "ini tialvalue" and "l owerlimit"
+T_MZRVARIABLE:
+  sig:
+  - [currentvalue, Double]
+  - [initialvalue, Double]
+  - [upperlimit, Double]
+  - [lowerlimit, Double]
+  - [fracstep, Double]
+  - [entity, Long]
+  - [index, Long]
+  - [subindex, Long]
+  - [fractionvar, Long]
+  - [description, String]
+  - [type, String]
+  - [script, String]
+  - [active, Boolean]
+
+# Remove the extra "As" in dirB parameter def
+TypeBPhotometryToDirCosines:
+  sig:
+  - [vert(), Double]
+  - [horiz(), Double]
+  - [dirA(), Double]
+  - [dirB, Double]
+  - [dirC, Double]
+
+# Fix "x1Sem iApe"
+T_TUBE:
+  sig:
+  - [x1SemiApe, Double]
+  - [y1SemiApe, Double]
+  - [z1SemiApe, Double]
+  - [x2SemiApe, Double]
+  - [y2SemiApe, Double]
+  - [z2SemiApe, Double]
+  - [shape1, Double]
+  - [shape2, Double]
+
+# GetFirstRay is really a function that returns a success boolean
+# but what we really care about is the side effects for the ray
+# information if passes by reference to it's parameters. Treat
+# it like a subroutine (though we loose the success return boolean)
+GetFirstRay:
+  cmdtype: subroutine
+  descr: Retrieves ray data for the first Live ray.
+  returns: [success, Boolean]
+  sig:
+  - [id, Long]
+  - [tr, T_RAY]
+
+# Same deal for GetNextRay, GetPreviousRay, GetLastRay
+GetNextRay:
+  cmdtype: subroutine
+  descr: Retrieves ray data for the next Live ray.
+  returns: [success, Boolean]
+  sig:
+  - [id, Long]
+  - [tr, T_RAY]
+
+GetPreviousRay:
+  cmdtype: subroutine
+  descr: Retrieves ray data for the previous Live ray.
+  returns: [success, Boolean]
+  sig:
+  - [id, Long]
+  - [tr, T_RAY]
+
+GetLastRay:
+  cmdtype: subroutine
+  descr: Retrieves ray data for the last Live ray.
+  returns: [success, Boolean]
+  sig:
+  - [id, Long]
+  - [tr, T_RAY]
+
+# The help file documents the 8th parameter name to be g_Ascat_i_s
+# which is a repeat of the 5th parameter. It should probably instead
+# be g_Ascat_r_s
+T_SCATTERSCRIPTEX:
+  cmdtype: datastruct
+  descr: "This data structure is used to specify scattering in the Extended Scripted\
+    \ scatter model.\_ Please see the Extended Scripted \_scatter model help page\
+    \ for a description of its use."
+  returns: []
+  sig:
+  - [g_Ainc_i_p, Double]
+  - [g_Ainc_i_s, Double]
+  - [g_Ainc_r_p, Double]
+  - [g_Ainc_r_s, Double]
+  - [g_Ascat_i_p, Double]
+  - [g_Ascat_i_s, Double]
+  - [g_Ascat_r_p, Double]
+  - [g_Ascat_r_s, Double]
+  - [g_BSDF, Double]
+  - [g_frac, Double]
+  - [g_K0, Double]
+  - [g_K1, Double]
+  - [g_N0, Double]
+  - [g_N1, Double]
+  - [g_numA, Long]
+  - [g_numB, Long]
+  - [g_ran0, Double]
+  - [g_ran1, Double]
+  - [g_ran2, Double]
+  - [g_ran3, Double]
+  - [g_TISrequest, Boolean]
+  - [g_w, Double]
+  - [g_Xinc, Double]
+  - [g_Xinc_s, Double]
+  - [g_Xnrml, Double]
+  - [g_Xpos, Double]
+  - [g_Xscat, Double]
+  - [g_Xscat_s, Double]
+  - [g_Xspec, Double]
+  - [g_Xspec_s, Double]
+  - [g_Yinc, Double]
+  - [g_Yinc_s, Double]
+  - [g_Ynrml, Double]
+  - [g_Ypos, Double]
+  - [g_Yscat, Double]
+  - [g_Yscat_s, Double]
+  - [g_Yspec, Double]
+  - [g_Yspec_s, Double]
+  - [g_Zinc, Double]
+  - [g_Zinc_s, Double]
+  - [g_Znrml, Double]
+  - [g_Zpos, Double]
+  - [g_Zscat, Double]
+  - [g_Zscat_s, Double]
+  - [g_Zspec, Double]
+  - [g_Zspec_s, Double]

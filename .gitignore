@@ -1,1 +1,12 @@
 *.pyc
+*~
+*.swp
+pyfred/apicmds.py
+pyfred/data/alldocs.txt
+pyfred/data/alldocs.yaml
+pyfred/data/allfuncts.txt
+pyfred/data/allstructs.txt
+pyfred/data/allsubs.txt
+pyfred/data/allunknowns.txt
+pyfred/data/api_build.yaml
+pyfred/data/api_build_no-override.yaml

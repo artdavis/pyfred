@@ -87,6 +87,16 @@ The third script wraps the FRED interface in python and creates pyfred's API:
     $ python script03_apiwrapgen.py
 ```
 
+## Usage
+Have a look through the files in the `tests` subdirectory for examples
+of usage.
+
+First thing to try is to run `test_raw_create_doc.py`. This launches
+FRED and creates a simple document with a plane element. This script only
+uses the raw COM interface (pyfred is not used at all). If FRED does not launch
+and create a document with a plane then python is not able to communicate
+with FRED and you've got some troubleshooting to do.
+
 ## License
 
 pyfred is free software: you can redistribute it and/or modify it under the

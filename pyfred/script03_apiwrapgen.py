@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 """
 Create the API Wrapper functions
 ===============================================================================
@@ -41,7 +41,7 @@ TIMENOW = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 PARMAT = re.compile('\s*\(\s*\)\s*')
 
 # Class definition string
-CLASTR='''#! /usr/bin/env python
+CLASTR='''#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Provide class to wrap all available FRED commands

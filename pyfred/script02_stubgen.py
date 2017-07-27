@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 """
 Functions for creating FRED script library stubs
 ===============================================================================

@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 """
 Parse the FRED help file for command signatures
 ===============================================================================
@@ -18,6 +18,7 @@ can be used to get the HTML files out of the CHM file::
 Use subprocess to call this and then access the HTML files in the extraction
 directory to build the API datastructures.
 
+TODO: Implement pyparsing instead of regexes
 """
 
 import os

@@ -14,42 +14,78 @@ Some advantages this provides are:
 - Use of the Jupyter Notebook for documentation, reporting and workflow
 
 ## Installation
+pyfred is written and tested in Python 3.
+
+pyfred has not yet been "packaged" so the installation process is
+completely manual. The following instructions provide some helpful
+guidelines but you will  need to be well versed in your own specific
+python installation for troubleshooting purposes.
+
+### Downloading
+Currently pyfred is only available through GitHub. Grab the latest
+version using
+```bash
+    $ git clone https://github.com/artdavis/pyfred
+```
+Alternatively, use a browser to navigate to
+`https://github.com/artdavis/pyfred` and use the "Clone or download"
+button to "download zip" and decompress into your folder of choice.
+
+*IMPORTANT* The cloned or unzipped package will have within it a
+subdirectory named `pyfred`. You should see python files in there like
+`core.py`, `script00_verify_libraries.py` and others. It is this
+directory which must be located inside of python's search path.
+For example, if you have a project directory in your PYTHONPATH called
+`C:\Users\username\Documents\python` you could put the pyfred directory
+there: `C:\Users\username\Documents\python\pyfred`. Test that it works:
+```bash
+    $ python -c 'import pyfred'
+```
+If there are no reported errors then the path is good. If you get
+a `ModuleNotFoundError` then you need to troubleshoot getting pyfred
+into python's search path.
+
+
+### Required libraries
+pyfred requires the usual "scientific" library add-ons:
+`numpy`, `scipy`, `matplotlib`, `IPython`, `win32com`, which will
+typically be available if you've installed Python from a pre-packaged
+distribution.
+
+pyfred also requires:
+* `PyYAML` - http://pyyaml.org/wiki/PyYAML
+
+Preferably install missing packages using your primary package manager
+assuming they're available there. Otherwise you may find and install
+them via `pip`.
+
+The availability of the necessary libraries can be tested by running
+the included `script00_verify_libraries.py`. If this script runs with
+no errors you are in good shape to move on to the next step.
+
+### Building
 pyfred must first build it's API from the FRED help file. It will look
 in the most logical places, but if it can't find it, or you have a specific
 version of a help file you want to use, you'll have to specify its location
-manually.
+manually (in `glovars.py` set `CHMAUTOLOCATE=False` and specify the location
+of `Fred.chm` in `CHMPATH`).
 
-To install pyfred, run:
+Run the script0[1-3] files in order:
+
+This first script decompiles the FRED help file for generating pyfred's API:
 ```bash
-    $ pip install pyfred
+    $ python script01_winparse_chm.py
 ```
 
-Or, if you don't have pip:
-
+script02 creates the VBScript stub programs:
 ```bash
-    $ easy_install pyfred
+   $ python script02_stubgen.py
 ```
 
-Also if you already have the source downloaded:
-
+The third script wraps the FRED interface in python and creates pyfred's API:
 ```bash
-    $ python setup.by install
+    $ python script03_apiwrapgen.py
 ```
-
-There are several post-installation scripts that need to run before pyfred
-will be fully installed. These scripts are called up and run automatically
-during the setup.py install process. You may also run them after the fact
-from the `pyfred/scripts` directory or from your local site scripts directory.
-The scripts should show up as executables in your scripts directory as
-program files with the prefix "pyfred_". They should be run in the following
-order:
-
-- `$ python script01_winparse_chm.py`
-  - Decompiles the FRED help file for generating pyfred's API
-- `$ python script02_stubgen.py`
-  - Creates the VBScript stub programs
-- `$ python script03_apiwrapgen.py`
-  - Create pyfred's the API which wraps the FRED interface in python
 
 ## License
 
@@ -61,9 +97,4 @@ version.
 See LICENSE for details.
 
 ## Disclaimer
-
-pyfred is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
 pyfred is not affiliated with Photon Engineering LLC.

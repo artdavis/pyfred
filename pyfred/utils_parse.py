@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 """
 Collection of useful parsing utilities
 ===============================================================================

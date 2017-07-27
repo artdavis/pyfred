@@ -12,7 +12,6 @@ import os
 
 import win32com.client as w32
 
-CWD=os.path.dirname(os.path.abspath(__file__))
 DOCNAME = 'fredtestdoc'
 
 app = w32.Dispatch("FRED.Application")

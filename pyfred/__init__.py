@@ -11,7 +11,8 @@ This file is part of pyfred. See LICENSE and README.md for details.
 # List of packages that will be imported with 'from pyfred import *'
 __all__ = [
            'core',
+           'apicmds',
            ]
 
-# Automatic module imports for 'import pyfred_cube'
+# Automatic module imports for 'import pyfred'
 from . import core

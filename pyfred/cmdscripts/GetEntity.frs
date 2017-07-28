@@ -1,0 +1,27 @@
+Function libfunct (n As Long, entity As T_ENTITY) As Variant
+    ' Wrapper stub for GetEntity SUBROUTINE
+    '
+    ' GetEntity is implemented in FRED as a Subroutine.
+    ' This subroutine takes multiple parameters and may or may
+    ' not alter any number of them. All of the supplied parameters
+    ' are therefore returned in an Array() structure after the
+    ' subroutine has operated on them
+    '
+    ' Description:
+    '   Retrieves the generic entity data for a specified FRED entity.
+    '
+    ' Returns:
+    '   Array of:
+    '   n As Long
+    '   entity As T_ENTITY
+    '
+    ' Useful in COM programming as:
+    '     >>> lib = CreateLib(<path>/GetEntity)
+    ' (where <path> is the path location for GetEntity)
+    ' to yield an object that can be called as:
+    '     >>> lib.libfunct()
+    '
+    ' WARNING: customizing this VBScript may override intended API function.
+    GetEntity n, entity
+    libfunct = Array(n, entity)
+End Function

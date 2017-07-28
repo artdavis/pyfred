@@ -1,0 +1,18 @@
+Sub libfunct (outstr As String)
+    ' Wrapper stub for printing to the FRED output window
+    '
+    ' Description:
+    '   Print string to the FRED Output Window
+    '
+    ' Returns:
+    '   Nothing
+    '
+    ' Useful in COM programming as:
+    '     >>> lib = CreateLib(<path>/OutputWindowPrint)
+    ' (where <path> is the path location for OutputWindowPrint)
+    ' to yield an object that can be called as:
+    '     >>> lib.libfunct()
+    '
+    ' WARNING: customizing this VBScript may override intended API function.
+    Print outstr
+End Sub

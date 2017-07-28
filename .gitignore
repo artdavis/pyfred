@@ -10,3 +10,5 @@ pyfred/data/allsubs.txt
 pyfred/data/allunknowns.txt
 pyfred/data/api_build.yaml
 pyfred/data/api_build_no-override.yaml
+html/
+stubs/

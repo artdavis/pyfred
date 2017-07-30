@@ -98,6 +98,18 @@ uses the raw COM interface (pyfred is not used at all). If FRED does not launch
 and create a document with a plane then python is not able to communicate
 with FRED and you've got some troubleshooting to do.
 
+If that's working, next try running `examples\core_pyfred_doc.py` which will
+create a similar FRED document except it uses the pyfred API. It's also a good
+example for demonstrating the intended usage of pyfred.
+
+## Tutorial
+
+There is a tutorial document that demonstrates various pyfred functionality in
+`examples\jupyter_notebook_pyfred_tutorial`. Ideally you would open the
+`.ipynb` version of the file in a Jupyter Notebook and interactively run
+through cell by cell.  There are also non-interactive `.html` and `.pdf`
+formats available.
+
 ## License
 pyfred is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software

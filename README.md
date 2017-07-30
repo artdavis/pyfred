@@ -31,7 +31,7 @@ Alternatively, use a browser to navigate to
 `https://github.com/artdavis/pyfred` and use the "Clone or download"
 button to "download zip" and decompress into your folder of choice.
 
-*IMPORTANT* The cloned or unzipped package will have within it a
+*IMPORTANT*: The cloned or unzipped package will have within it a
 subdirectory named `pyfred`. You should see python files in there like
 `core.py`, `script00_verify_libraries.py` and others. It is this
 directory which must be located inside of python's search path.

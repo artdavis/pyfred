@@ -88,9 +88,7 @@ The third script wraps the FRED interface in python and creates pyfred's API:
 ```
 
 ## Usage
-Have a look through the files in the `examples` and `tests` subdirectory.
-Files in `examples` may be readily repurposed. Scripts in `tests` may also
-be useful but they are formatted specifically for pyfred testing.
+Have a look through the files in the `examples` subdirectory.
 
 First thing to try is to run `examples\raw_create_doc.py`. This launches
 FRED and creates a simple document with a plane element. This script only
@@ -107,8 +105,8 @@ example for demonstrating the intended usage of pyfred.
 There is a tutorial document that demonstrates various pyfred functionality in
 `examples\jupyter_notebook_pyfred_tutorial`. Ideally you would open the
 `.ipynb` version of the file in a Jupyter Notebook and interactively run
-through cell by cell.  There are also non-interactive `.html` and `.pdf`
-formats available.
+through cell by cell.  You may also read the non-interactive `.pdf` version of
+the tutorial as well.
 
 ## License
 pyfred is free software: you can redistribute it and/or modify it under the

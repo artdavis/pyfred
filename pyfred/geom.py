@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 """
 Geometry creation convenience class/functions for pyfred

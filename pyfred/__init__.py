@@ -12,6 +12,9 @@ This file is part of pyfred. See LICENSE and README.md for details.
 __all__ = [
            'core',
            'apicmds',
+           'utils',
+           'geom',
+           'version',
            ]
 
 # Automatic module imports for 'import pyfred'

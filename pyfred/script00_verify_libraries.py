@@ -10,8 +10,7 @@ This file is part of pyfred. See LICENSE and README.md for details.
 
 import importlib
 
-required = ['numpy', 'scipy', 'matplotlib', 'IPython', 'html',
-            'win32com', 'yaml']
+required = ['numpy', 'IPython', 'html', 'win32com', 'yaml']
 missing = []
 
 print("*"*60)

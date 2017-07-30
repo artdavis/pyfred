@@ -47,13 +47,12 @@ into python's search path.
 
 
 ### Required libraries
-pyfred requires the usual "scientific" library add-ons:
-`numpy`, `scipy`, `matplotlib`, `IPython`, `win32com`, which will
+pyfred requires some standard library add-ons:
+`numpy`, `IPython`, `win32com`, which will
 typically be available if you've installed Python from a pre-packaged
 distribution.
 
-pyfred also requires:
-* `PyYAML` - http://pyyaml.org/wiki/PyYAML
+pyfred also requires `PyYAML` (http://pyyaml.org/wiki/PyYAML).
 
 Preferably install missing packages using your primary package manager
 assuming they're available there. Otherwise you may find and install

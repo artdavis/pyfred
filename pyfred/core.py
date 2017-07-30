@@ -12,9 +12,8 @@ import numpy as np
 import math
 
 import win32com.client as w32
-#import apicmds as fredapi
-#import apicustom as fredapi
-#import utils as u
+from . import apicmds as api
+from . import utils as u
 
 CWD=os.path.dirname(os.path.abspath(__file__))
 MODNAME = os.path.splitext(os.path.basename(__file__))[0]
@@ -340,24 +339,22 @@ class DocInit(DocBase):
                        existing=False,
                        visbool=True):
         """
-        :param docname: Name of the FRED document to initialize
-                        (Default: fredpy)
-        :type docname: str
-        :param reset: Flag to reset an open document if one with docname is
-                      already open (True) or to open a new version of docname
-                      regardless if one with that name is already open (False)
-                      (Default: False) - Default is False since running
-                      SysNewOrReset when multiple windows are open pops up a
-                      dialog in FRED requesting manual intervention to pick the
-                      document regardless if one with the requested name is
-                      already open.
-        :type reset: bool
-        :param existing: Flag to indicate we should open an existing file
-                         with SysOpen instead of create a new file with
-                         SysNew
-        :param visbool: Flag for whether document is visible or not
-                        (Default is visible: True)
-        :type visbool: bool
+        Parameters
+        ----------
+        docname : str, default: 'pyfred'
+            Name of the FRED document to initialize
+        reset : boolean, default: False
+            Flag to reset an open document if one with docname is already open
+            (True) or to open a new version of docname regardless if one with
+            that name is already open (False) - Default is False since running
+            SysNewOrReset when multiple windows are open pops up a dialog in
+            FRED requesting manual intervention to pick the document regardless
+            if one with the requested name is already open.
+        existing : boolean, default: False
+            Flag to indicate we should open an existing file with SysOpen
+            instead of creating a new file with SysNew
+        visbool : boolean, default: True
+            Flag for whether document is visible or not
         """
         # Application object:
         self._app = w32.Dispatch("FRED.Application")
@@ -400,7 +397,7 @@ class DocProperties(object):
 
     @property
     def _API(self):
-        return fredapi.Wrap(self._DOBJ)
+        return api.Wrap(self._DOBJ)
 
     @property
     def _DSTRUCT(self):
@@ -672,9 +669,9 @@ class Camera(DocProperties):
         using zenithal angle from z and azimuth around y
         """
         l = self.dist
-        a = l * u.cosdeg(zen) * u.sindeg(az)
-        b = l * u.sindeg(zen)
-        c = l * u.cosdeg(zen) * u.cosdeg(az)
+        a = l * u.cosdg(zen) * u.sindg(az)
+        b = l * u.sindg(zen)
+        c = l * u.cosdg(zen) * u.cosdg(az)
         self._view(loc=(a, b, c))
 
     @property

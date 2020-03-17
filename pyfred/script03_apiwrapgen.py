@@ -26,9 +26,9 @@ import codecs
 import utils_parse as utils
 import glovars
 
-# Setup to use breakpt() for droppping into ipdb:
-from IPython.core.debugger import Tracer
-breakpt = Tracer()
+# Setup to use breakpt() for dropping into ipdb:
+#import IPython
+#breakpt = IPython.core.debugger.set_trace
 
 # Indentation whitespace:
 I1 = " " * 4

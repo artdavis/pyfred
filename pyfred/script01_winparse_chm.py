@@ -33,6 +33,10 @@ import keyword # keyword.kwlist contains reserved keywords
 import glovars
 import utils_parse as utils
 
+# Setup to use breakpt() for dropping into ipdb:
+#import IPython
+#breakpt = IPython.core.debugger.set_trace
+
 DOCFILE = 'alldocs'
 # Max length for a variable name.
 # Current record holder: len('CountOfNonZeroAbsorbedFluxCells') == 31
@@ -174,7 +178,7 @@ class GrabDoc(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         # Class tags for dockeys
-        dkeycls = {'ts14', 'ts7'}
+        dkeycls = {'ts14', 'ts7', 'ts0'}
         if tag == 'span':
             for attr in attrs:
                 if attr[0] == 'class':
@@ -476,7 +480,7 @@ def main():
 
     # Before we save the data out to the API file, apply any overrides
     with open(glovars.APIOVERRIDEPATH, 'r') as fid:
-        odat = yaml.load(fid.read())
+        odat = yaml.load(fid.read(), Loader=yaml.FullLoader)
     for ocmd, odict in odat.items():
         for k, v in odict.items():
             apidict[ocmd][k] = v

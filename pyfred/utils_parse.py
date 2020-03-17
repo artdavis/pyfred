@@ -21,7 +21,7 @@ def readyaml(fname):
     pythonic data structure.
     """
     with open(fname, 'r') as fid:
-        return yaml.load(fid.read())
+        return yaml.load(fid.read(), Loader=yaml.FullLoader)
 
 def writefile(fname, txt):
     """

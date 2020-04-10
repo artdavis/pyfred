@@ -29,18 +29,5 @@ if 0 < len(missing):
     for i in missing: print("    {}".format(i))
 else:
     print("Test passed. pyfred has the necessary libraries to run.")
-    
-print("*"*60)
 
-# Only run next test if previous test passed
-if 0 == len(missing):
-    print("Checking if pyfred can be imported...")
-    try:
-        import pyfred
-        print("PASS: pyfred module location is good")
-    except ModuleNotFoundError:
-        print("FAIL: pyfred could not be found")
-        print("Try moving the pyfred module directory somewhere python can")
-        print("find it or update your PYTHONPATH environment variable to")
-        print("include the parent directory of pyfred.")
-    print("*"*60)
+print("*"*60)

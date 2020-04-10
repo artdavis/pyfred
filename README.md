@@ -69,7 +69,7 @@ version of a help file you want to use, you'll have to specify its location
 manually (in `glovars.py` set `CHMAUTOLOCATE=False` and specify the location
 of `Fred.chm` in `CHMPATH`).
 
-Run the script0[1-3] files in order:
+Run the script0[1-4] files in order:
 
 This first script decompiles the FRED help file for generating pyfred's API:
 ```bash
@@ -84,6 +84,11 @@ script02 creates the VBScript stub programs:
 The third script wraps the FRED interface in python and creates pyfred's API:
 ```bash
     $ python script03_apiwrapgen.py
+```
+
+The fourth script will check that the API has been built and can be imported:
+```bash
+    $ python script04_confirm_import.py
 ```
 
 ## Usage

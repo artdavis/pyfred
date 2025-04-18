@@ -74,7 +74,7 @@ def main():
     """
     # Get the API Building data structure
     with open(glovars.APIFILEPATH, 'r') as fid:
-        apidat = yaml.load(fid.read())
+        apidat = yaml.load(fid.read(), Loader=yaml.Loader)
     # Make the stubs directory if necessary
     if not os.path.exists(glovars.STUBDIR):
         os.makedirs(glovars.STUBDIR)

@@ -1,6 +1,14 @@
 # pyfred
 Python wrapper for Photon Engineering's FRED software
 
+> [!WARNING]
+> pyfred is no longer under active development.
+>
+> The help file from new versions of FRED will not be correctly
+> parsed for generating the required API to use pyfred.
+> Although, it may still be possible to get pyfred to work by using
+> the help file from an older FRED version (like FRED 16 or 17).
+
 ## Description
 pyfred provides pythonic bindings into a FRED document and a consistent API
 for using FRED through the win32 COM interface without having to worry about
